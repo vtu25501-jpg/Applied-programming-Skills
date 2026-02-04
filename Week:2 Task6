@@ -1,0 +1,36 @@
+6)Reverse Nodes in k-Group:
+Program:
+class Solution {
+    public ListNode reverseKGroup(ListNode head, int k) {
+
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode prevGroupEnd = dummy;
+
+        while (true) {
+
+            ListNode kth = prevGroupEnd;
+            for (int i = 0; i < k; i++) {
+                kth = kth.next;
+                if (kth == null) return dummy.next;
+            }
+
+            ListNode groupStart = prevGroupEnd.next;
+            ListNode nextGroupStart = kth.next;
+
+            ListNode prev = nextGroupStart;
+            ListNode curr = groupStart;
+
+            while (curr != nextGroupStart) {
+                ListNode next = curr.next;
+                curr.next = prev;
+                prev = curr;
+                curr = next;
+            }
+
+            prevGroupEnd.next = kth;
+            prevGroupEnd = groupStart;
+        }
+    }
+}
+Output:
