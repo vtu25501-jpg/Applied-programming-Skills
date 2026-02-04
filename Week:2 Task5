@@ -1,0 +1,27 @@
+5)Reverse Linked List:
+Program:
+class Solution {
+    public ListNode reverseList(ListNode head) {
+
+        ListNode prev = null;
+        ListNode curr = head;
+
+        while (curr != null) {
+            ListNode next = curr.next; // save next
+            curr.next = prev;          // reverse link
+            prev = curr;               // move prev
+            curr = next;               // move curr
+        }
+
+        return prev;
+    }
+}
+Output:
+Example 1:
+Input: head = [1,2,3,4,5]
+Output: [5,4,3,2,1]
+Example 2:
+Input: head = [1,2]
+Output: [2,1]
+Input: head = []
+Output: []
