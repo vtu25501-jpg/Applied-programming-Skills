@@ -12,6 +12,6 @@ public class Solution {
             }
         }
 
-        return minHeap.peek(); // kth largest
+        return minHeap.peek();
     }
 }
